@@ -1,57 +1,57 @@
 ---
 id: part-1-overview-concepts
-title: 'Redux Essentials, Part 1: Redux Overview and Concepts'
-sidebar_label: 'Redux Overview and Concepts'
-description: 'The official Essentials tutorial for Redux: learn how to use Redux, the right way'
+title: 'مبادئ ريداكس, الجزء 1: ريداكس نظره عامه ومفاهيم'
+sidebar_label: 'ريداكس نظره عامه ومفاهيم '
+description: 'البرنامج التعليمي الرسمي لمبادئ ريداكس: تعلم كيف تستخدم ريداكس, بالطريقه الصحيحه'
 ---
 
 import { DetailedExplanation } from '../../components/DetailedExplanation'
 
-:::tip What You'll Learn
+:::tip ماذا ستتعلم
 
-- What Redux is and why you might want to use it
-- Key Redux terms and concepts
-- How data flows through a Redux app
-
-:::
-
-## Introduction
-
-Welcome to the Redux Essentials tutorial! **This tutorial will introduce you to Redux and teach you how to use it the right way, using our latest recommended tools and best practices**. By the time you finish, you should be able to start building your own Redux applications using the tools and patterns you've learned here.
-
-In Part 1 of this tutorial, we'll cover the key concepts and terms you need to know to use Redux, and in [Part 2: Redux App Structure](./part-2-app-structure.md) we'll examine a basic React + Redux app to see how the pieces fit together.
-
-Starting in [Part 3: Basic Redux Data Flow](./part-3-data-flow.md), we'll use that knowledge to build a small social media feed app with some real-world features, see how those pieces actually work in practice, and talk about some important patterns and guidelines for using Redux.
-
-### How to Read This Tutorial
-
-This page will focus on showing you _how_ to use Redux the right way, and explain just enough of the concepts so that you can understand how to build Redux apps correctly.
-
-We've tried to keep these explanations beginner-friendly, but we do need to make some assumptions about what you know already:
-
-:::important Prerequisites
-
-- Familiarity with [HTML & CSS](https://internetingishard.com/).
-- Familiarity with [ES6 syntax and features](https://www.taniarascia.com/es6-syntax-and-feature-overview/)
-- Knowledge of React terminology: [JSX](https://reactjs.org/docs/introducing-jsx.html), [State](https://reactjs.org/docs/state-and-lifecycle.html), [Function Components, Props](https://reactjs.org/docs/components-and-props.html), and [Hooks](https://reactjs.org/docs/hooks-intro.html)
-- Knowledge of [asynchronous JavaScript](https://javascript.info/promise-basics) and [making AJAX requests](https://javascript.info/fetch)
+- ماهو ريداكس ولماذا قد تريد استخدامه
+- مفاهيم ومصطلحات ريداكس
+- كيف تتدفق البيانات داخل برنامج ريداكس
 
 :::
 
-**If you're not already comfortable with those topics, we encourage you to take some time to become comfortable with them first, and then come back to learn about Redux**. We'll be here when you're ready!
+## مقدمه
 
-You should make sure that you have the React and Redux DevTools extensions installed in your browser:
+أهلا بك في البرنامج التعليمي لريداكس! **سيؤهلك هذا البرنامج التعليمي لريداكس وسيعلمك كيفية استخدامه بطريقه صحيحه, باستخدام احدث ادواتنا الموصى بها وأفضل الممارسات**. بمجرد الإنتهاء, يجب انت تكون قادر علي انشاء برنامجك الخاص بريداكس بإستخدام الأدوات و والأنماط التي تعلمتها هنا.
 
-- React DevTools Extension:
-  - [React DevTools Extension for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-  - [React DevTools Extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
+في الجزء 1 من هذا البرنامج التعليمي, سنغطي المفاهيم والمصطلحات الأساسية التي تحتاجها لإستخدام ريداكس, وفي [الجزء 2: هيكل تطبيق ريداكس](./part-2-app-structure.md) سنوضح أُسس ريأكت + وبرنامج ريداكس لنري كيف تتناسب مع بعضها.
+
+وبالبدئ في [الجزء 3: أسس تدفق بيانات ريداكس](./part-3-data-flow.md), سنستخدم هذه المعرفه في بناء برنامج تواصل اجتماعي بسيط مع تزويد البرنامج ببعض مميزات العالم الحقيقي, لتري كيف تعمل هذه القطع فعليا في الواقع العملي, ونتحدث عن بعض الأنماط والتوجيهات المهمه لاستخدام ريداكس .
+
+### كيف تقرأ هذا البرنامج التعليمي
+
+هذه الصفحه ستركز علي توضيح _كيفية_ استخدام ريداكس بالطريقة الصحيحة, وشرح ما يكفي من المفاهيم حتي تتمكن من انشاء تطبيقات ريداكس بطريقه صحيحة.
+
+لقد حاولنا ان نجعل هذا الشرح مناسب تماما للمبتدئين, ولكن نحتاج الي وضع بعض الإفتراضات لما قد تعرفه فعلا:
+
+:::important الشروط
+
+- مألوف لديك [HTML & CSS](https://internetingishard.com/).
+- مألوف لديك [ES6 syntax and features](https://www.taniarascia.com/es6-syntax-and-feature-overview/)
+- معرفة مصطلحات ريأكس: [JSX](https://reactjs.org/docs/introducing-jsx.html), [State](https://reactjs.org/docs/state-and-lifecycle.html), [Function Components, Props](https://reactjs.org/docs/components-and-props.html), and [Hooks](https://reactjs.org/docs/hooks-intro.html)
+- معرفة [asynchronous JavaScript](https://javascript.info/promise-basics) و [making AJAX requests](https://javascript.info/fetch)
+
+:::
+
+**لو لم تكن مألوفه لديك هذه المصطلحات بالفعل , نحن نشجعك علي قضاء بعض الوقت معها لتكون مألوفه لديك, ثم تعالي مرة أخري لتعلم ريداكس**. سنكون هنا عندما تكون جاهز!
+
+لابد ان تتأكد ان لديك اضافات React و Redux DevTools مُثبته بالفعل في متصفحك:
+
+- React DevTools إضافة:
+  - [إضافة React DevTools  للكروم](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+  - [إضافة React DevTools للفايرفوكس](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 - Redux DevTools Extension:
-  - [Redux DevTools Extension for Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
-  - [Redux DevTools Extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/)
+  - [إضافة Redux DevTools للكروم](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+  - [إضافة Redux DevTools للفايرفوكس](https://addons.mozilla.org/en-US/firefox/addon/reduxdevtools/)
 
-## What is Redux?
+## ما هي Redux?
 
-It helps to understand what this "Redux" thing is in the first place. What does it do? What problems does it help me solve? Why would I want to use it?
+لكي تفهم ماهي "Redux" لابد في المقام الأول ان تعرف. ماذا تفعل؟ ما المشكلات التي تساعدني في حلها ؟ لماذا يجب عليا ان استخدمها؟ 
 
 **Redux is a pattern and library for managing and updating application state, using events called "actions".** It serves as a centralized store for state that needs to be used across your entire application, with rules ensuring that the state can only be updated in a predictable fashion.
 
